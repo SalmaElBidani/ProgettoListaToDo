@@ -1,0 +1,3 @@
+/home/selma/Documenti/Programmazione/ProgettoListaToDo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/selma/Documenti/Programmazione/ProgettoListaToDo/cmake-build-debug/CMakeFiles/ProgettoListaToDo.dir
+/home/selma/Documenti/Programmazione/ProgettoListaToDo/cmake-build-debug/CMakeFiles/edit_cache.dir
