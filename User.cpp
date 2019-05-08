@@ -1,18 +1,18 @@
 /**
- * Project Untitled
+ * User.cpp
  */
 
 
-#include "User.h"
+/*
+ * #include "User.h"
+#include <sys/stat.h>
+#include <fstream>
+#include <algorithm>
+#include <iterator>
 
-/**
- * User implementation
- */
-
-
-/**
- * @param string nickname
- */
-void User::User(void string nickname) {
-
+User::User(){
+    load();
 }
+std::vector< std::shared_ptr<Checklist> >
+        return Checklist;
+*/

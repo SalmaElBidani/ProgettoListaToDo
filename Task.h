@@ -11,6 +11,7 @@
 #include "Date.h"
 #include "Time.h"
 #include <iostream>
+#include "Task.h"
 
 class Task: public Subject {
 public: 

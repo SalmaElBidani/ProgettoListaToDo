@@ -14,14 +14,14 @@
  * @param string name
  * @param string description
  */
-void Board::Checklist(void string name, void string description) {
+void Board::Checklist( string name,  string description) {
 
 }
 
 /**
  * @param Checklist checklist
  */
-void Board::addChecklist(void Checklist checklist) {
+void Board::addChecklist( Checklist checklist) {
 
 }
 

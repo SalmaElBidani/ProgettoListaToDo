@@ -1,21 +1,32 @@
 /**
- * Project Untitled
+ * User.h
  */
 
 
 #ifndef _USER_H
 #define _USER_H
 
+#include "Checklist.h"
+#include <string>
+#include <vector>
+#include <stdio.h>
+#include <memory>
+
+class shared_ptr;
+
 class User {
-public: 
+public:
+    std::string username;
+    void registerme(){
+        std::cout << "Enter your name: " << std::endl;
+        getline(std::cin, username);
+    }
+
     
-/**
- * @param string nickname
- */
-void User(void string nickname);
-private: 
-    string Nickname;
-    list<checklist> Checklists;
+
+private:
+    std::vector< std::shared_ptr<Checklist> > Checklist;
+
 };
 
 #endif //_USER_H
