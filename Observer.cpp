@@ -5,6 +5,3 @@
 
 #include "Observer.h"
 
-/**
- * Observer implementation
- */
