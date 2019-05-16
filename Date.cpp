@@ -8,14 +8,8 @@
 #include <ctime>
 #include <iostream>
 
-/**
- * Date implementation
+// control of the date
 
-
- * @param int Day
- * @param int month
- * @param int year
- */
 Date::Date(int aDay, int aMonth, int aYear) throw (std::runtime_error){
     if(aYear < 0)
         throw std::runtime_error("Year < 0");
@@ -34,9 +28,8 @@ Date::Date(int aDay, int aMonth, int aYear) throw (std::runtime_error){
 Date::~Date() {
 }
 
-/**
- * @return Day
- */
+//getters
+
 int Date::getDay() const{
     return this->day;
 };
@@ -124,9 +117,8 @@ std::string Date::getMonthString(short unsigned int month) const {
     }
     return monthText;
 }
-/**
- * Set method
- */
+//Set method
+
 void Date::setDay(int day) throw (std::runtime_error){
     int maxDay = getMaxDays(this->year);
     if (day <= 0 || day>maxDay)
@@ -147,9 +139,8 @@ void Date::setYear(int year) throw (std::runtime_error){
     this->year = year;
 }
 
-/**
- * Static method that allows to get the today's date
- */
+// Static method that allows to get the today's date
+
 
 Date Date::today(){
     //FIXME

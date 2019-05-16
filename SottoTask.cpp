@@ -5,14 +5,9 @@
 
 #include "SottoTask.h"
 
-/**
- * Sotto Task implementation
- */
 
-
-/**
- * @param string name
- */
-void Sotto Task::getTaskcompleted(void string name) {
+std::string SottoTask::getTaskcompleted(std::string name) {
 
 }
+
+//SottoTask(&Taskcompleted) : Taskcompleted(Taskcompleted) {}

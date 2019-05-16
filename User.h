@@ -25,7 +25,7 @@ public:
     
 
 private:
-    std::vector< std::shared_ptr<Checklist> > Checklist;
+    std::vector< std::shared_ptr<Checklist> > checklist;
 
 };
 

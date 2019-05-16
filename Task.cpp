@@ -4,16 +4,10 @@
 
 
 #include "Task.h"
-
-/**
- * Task implementation
- */
+#include "Time.h"
+#include <stdio.h>
 
 
-/**
- * @param Date date
- * @param string text
- */
-void Task::Task(void Date date, void string text) {
+//Task( date, std::string text) {
 
-}
+//}

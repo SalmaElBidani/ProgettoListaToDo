@@ -6,15 +6,18 @@
 #ifndef _MAIN WINDOW_H
 #define _MAIN WINDOW_H
 
+#include <QtWidgets/QPushButton>
 #include "Observer.h"
 #include "Board.h"
 #include "Observer.h"
+#include "User.h"
 
 
-class Main Window: public Observer, public Board, public Observer {
-public: 
-    
-void handleaddChecklist();
+class MainWindow : public Observer, public Board {
+public:
+    MainWindow(const string &name, const string &description);
+
+    void handleaddChecklist();
     
 void handledeleteChecklist();
 private: 

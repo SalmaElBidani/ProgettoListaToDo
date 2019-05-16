@@ -11,16 +11,13 @@
 #include "Date.h"
 #include "Time.h"
 #include <iostream>
-#include "Task.h"
+
 
 class Task: public Subject {
 public: 
     
-/**
- * @param Date date
- * @param string text
- */
-void Task(Date date, std::string text);
+
+ Task(Date date, std::string text);
 private: 
     Date startDate;
     Date endDate;

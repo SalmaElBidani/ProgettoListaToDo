@@ -8,12 +8,9 @@
 #include <stdexcept>
 
 
-/**
- * @param int hours h
- * @param int minutes m
- * @param int seconds s
- */
-Time::Time(short unsigned int h, short unsigned int m, short unsigned int s) noexept(false) {
+// controls the correctness of time
+
+Time::Time(short unsigned int h, short unsigned int m, short unsigned int s) {
     if (h < 0 || h > 24) {
         throw std::runtime_error ("Error in hours number");
     }
@@ -32,7 +29,7 @@ Time::Time(short unsigned int h, short unsigned int m, short unsigned int s) noe
 }
 
 
-Time Time::fromstring(std::string str){
+Time Time::fromString(std::string str){
     std::tm t;
     strptime (str.c_str(), "%H: %M: %S", &t);
     return Time(t.tm_hour, t.tm_min, t.tm_sec);
@@ -59,9 +56,8 @@ bool Time::operator == (const Time& right) const{
     return this->hours == right.hours && this->minutes == right.minutes && this->seconds == right.seconds;
 
 }
-/**
-  getters
- */
+
+ //get hours, minutes and seconds
  int Time::getHours() const{
      return hours;
  }

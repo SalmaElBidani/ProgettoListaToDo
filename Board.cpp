@@ -4,37 +4,11 @@
 
 
 #include "Board.h"
-
-/**
- * Board implementation
- */
+//void Board::addChecklist(Checklist checklist) {}
 
 
-/**
- * @param string name
- * @param string description
- */
-void Board::Checklist( string name,  string description) {
-
+//void Board::deleteChecklist(Checklist checklist) {}
+list <Checklist> Board::getChecklist() {
+   ;
 }
-
-/**
- * @param Checklist checklist
- */
-void Board::addChecklist( Checklist checklist) {
-
-}
-
-/**
- * @param Checklist checklist
- */
-void Board::deleteChecklis(void Checklist checklist) {
-
-}
-
-/**
- * @return list <checklist>
- */
-list <checklist> Board::getChecklist() {
-    return null;
-}
+Board::Board(const string &name, const string &description) : name(name), description(description) {}

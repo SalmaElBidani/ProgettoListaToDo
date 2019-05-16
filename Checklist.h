@@ -11,17 +11,15 @@
 #include <iostream>
 #include <map>
 
+
+
+
 class Checklist {
 public: 
     
-/**
- * @param Task task
- */
+
 void addTask( Task task);
-    
-/**
- * @param Task task
- */
+
 void deleteTask( Task task);
 private: 
     std::string name;

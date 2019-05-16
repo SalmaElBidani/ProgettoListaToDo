@@ -1,21 +1,24 @@
 /**
  * Project Untitled
  */
+#include <cstring>
+#include <cstdio>
+#include <string>
+
+#ifndef _SOTTOTASK_H
+#define _SOTTOTASK_H
 
 
-#ifndef _SOTTO TASK_H
-#define _SOTTO TASK_H
+class SottoTask {
+public:
 
-class Sotto Task {
-public: 
-    
-/**
- * @param string name
- */
-void getTaskcompleted(void string name);
+
+    SottoTask(std::string name);
+
+
+std::string getTaskcompleted(std::string name);
 private: 
-    string name;
-    string Taskcompleted;
+    std::string name;
+    std::string Taskcompleted;
 };
-
 #endif //_SOTTO TASK_H

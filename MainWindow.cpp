@@ -5,15 +5,14 @@
 
 #include "MainWindow.h"
 
-/**
- * Main Window implementation
- */
 
 
-void Main Window::handleaddChecklist() {
+void MainWindow::handleaddChecklist() {
 
 }
 
-void Main Window::handledeleteChecklist() {
+void MainWindow::handledeleteChecklist() {
 
 }
+
+MainWindow::MainWindow(const string &name, const string &description) : Board(name, description) {}

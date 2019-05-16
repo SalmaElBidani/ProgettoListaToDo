@@ -11,12 +11,12 @@
 #include "Observer.h"
 
 
-class TaskView: public Observer, public Task, public Observer {
+class TaskView: public Observer, public Task  {
 public: 
     
 void handleFavorites();
 private: 
-    QPushButton Favorites;
+   // QPushButton Favorites;
 };
 
 #endif //_TASKVIEW_H
