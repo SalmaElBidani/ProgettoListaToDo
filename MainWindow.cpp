@@ -1,18 +1,20 @@
-/**
- * Project Untitled
- */
-
-
 #include "MainWindow.h"
+#include "ui_mainwindow.h"
 
-
-
-void MainWindow::handleaddChecklist() {
-
+MainWindow::MainWindow(QWidget *parent) :
+        QMainWindow(parent),
+        ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
 }
 
-void MainWindow::handledeleteChecklist() {
-
+MainWindow::~MainWindow()
+{
+    delete ui;
 }
 
-MainWindow::MainWindow(const string &name, const string &description) : Board(name, description) {}
+void MainWindow::on_groupBox_clicked()
+{
+
+}
+;

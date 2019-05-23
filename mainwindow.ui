@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>591</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>LIsta to do</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuChecklist">
+    <property name="title">
+     <string>Checklist</string>
+    </property>
+    <addaction name="actionAdd"/>
+    <addaction name="actionDelete"/>
+   </widget>
+   <widget class="QMenu" name="menuTask">
+    <property name="title">
+     <string>Task</string>
+    </property>
+    <widget class="QMenu" name="menuAdd">
+     <property name="title">
+      <string>Add</string>
+     </property>
+     <addaction name="actionImportant"/>
+     <addaction name="actionNot_important"/>
+    </widget>
+    <addaction name="menuAdd"/>
+    <addaction name="actionDelete_2"/>
+   </widget>
+   <addaction name="menuChecklist"/>
+   <addaction name="menuTask"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionAdd">
+   <property name="text">
+    <string>Add</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+  </action>
+  <action name="actionDelete_2">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+  </action>
+  <action name="actionImportant">
+   <property name="text">
+    <string>Important</string>
+   </property>
+  </action>
+  <action name="actionNot_important">
+   <property name="text">
+    <string>Not  important</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
