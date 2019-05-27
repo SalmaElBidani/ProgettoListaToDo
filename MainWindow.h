@@ -1,25 +1,29 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+/**
+ * Project Untitled
+ */
 
-#include <QMainWindow>
 
-namespace Ui {
-    class MainWindow;
-}
+#ifndef _MAIN WINDOW_H
+#define _MAIN WINDOW_H
 
-class MainWindow : public QMainWindow
-{
-Q_OBJECT
-
+#include <QtWidgets/QPushButton>
+#include "Observer.h"
+#include "Board.h"
+#include "Observer.h"
+#include "User.h"
+#include <Checklist.h>
+#include <Task.h>
+class MainWindow : public Observer, public Board {
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    MainWindow(const string &name, const string &description);
 
-private slots:
-    void on_groupBox_clicked();
+    void handleaddChecklist();
+    
+void handledeleteChecklist();
+private: 
+    QPushButton addChecklist;
+    QPushButton deleteChecklist;
 
-private:
-    Ui::MainWindow *ui;
 };
 
-#endif // MAINWINDOW_H
+#endif //_MAIN WINDOW_H
