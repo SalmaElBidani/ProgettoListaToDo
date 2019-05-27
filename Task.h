@@ -14,7 +14,8 @@
 
 
 class Task: public Subject {
-public: 
+public:
+
     
 
  Task(Date date, std::string text);

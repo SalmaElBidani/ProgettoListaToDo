@@ -6,8 +6,7 @@ Checklist::Checklist(QString filename, QWidget* window)
 {
     QWidget();
 
-    if(!m_filename.isEmpty())
-        LoadFile();
+
 
     //NOTE(hugo): Creating the main groupBox containing all the
     //IMPORTANT(hugo): What should the parent of this widget be ?
@@ -26,41 +25,7 @@ Checklist::~Checklist()
 }
 
 
-void
-Checklist::LoadFile()
-{
-    QFile file(m_filename);
-    if(file.open(QIODevice::ReadOnly))
-    {
-        QTextStream in(&file);
-        uint CategoryCount = in.readLine().toUInt();
 
-        for(int CategoryIndex = 0;
-            CategoryIndex < CategoryCount;
-            ++CategoryIndex)
-        {
-            //NOTE(hugo): Processing the current category in the file
-            ToDoCategory *category = new ToDoCategory();
-            QString categoryLine = in.readLine();
-            QStringList CategoryLineSplitted = categoryLine.split(" ");
-            uint itemCount = CategoryLineSplitted[0].toUInt();
-            category->name = CategoryLineSplitted[1];
-            for(int ItemIndex = 0;
-                ItemIndex < itemCount;
-                ++ItemIndex)
-            {
-                category->items.append(in.readLine());
-            }
-
-            m_categories.append(category);
-        }
-        file.close();
-    }
-    else
-    {
-        qDebug() << "Could not open file";
-    }
-}
 
 
 void

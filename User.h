@@ -11,6 +11,7 @@
 #include <vector>
 #include <stdio.h>
 #include <memory>
+#include <iostream>
 
 class shared_ptr;
 
