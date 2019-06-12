@@ -28,6 +28,7 @@ signals:
     void statusChanged(Task *task);
 private slots:
     void checked(bool checked);
+void on_Important_clicked();
 
 
 private:

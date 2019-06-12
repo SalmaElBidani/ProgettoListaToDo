@@ -4,10 +4,17 @@
 #include <QFont>
 #include <Board.h>
 #include <stdio.h>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QColorDialog>
+#include <QPixmap>
+#include <QFont>
+
 Task::Task(const QString &name, QWidget *parent) :
         QWidget(parent),
         ui(new Ui::Task)
 {
+
+
     ui->setupUi(this);
     setName(name);
     connect(ui->editButton, &QPushButton::clicked,
@@ -66,5 +73,17 @@ void Task::checked(bool checked)
     emit statusChanged(this);
 }
 
+
+void Task::on_Important_clicked()
+{
+    QPixmap pix("/home/valeria/Scrivania/qt5-cpp-todo-master080619/qt5-cpp-todo-master/stella.png");
+    ui->label_pic-> setPixmap(pix.scaled(15,15,Qt::KeepAspectRatio));
+
+    QPalette palette = ui->checkbox->palette();
+    palette.setColor(ui->checkbox->foregroundRole(), Qt::red);
+    ui->checkbox->setPalette(palette);
+
+
+    }
 
 

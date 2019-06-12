@@ -2,6 +2,7 @@
 #include "ui_mainWindow.h"
 #include <QDebug>
 #include <QInputDialog>
+#include <QtWidgets/QFileDialog>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -48,6 +49,8 @@ void MainWindow::addListToDo()
         updateStatus();
     }
 }
+
+
 
 void MainWindow::saveListToDo()
 {
