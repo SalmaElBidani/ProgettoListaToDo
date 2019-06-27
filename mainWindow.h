@@ -30,7 +30,9 @@ public slots:
     void addListToDo();
     void removeListToDo(ListToDo *listToDo);
     void listToDoStatusChanged(ListToDo *listToDo);
-    void saveListToDo();
+private slots:
+    void on_Save_clicked();
+    void on_OpenFile_clicked();
 
 
 private:

@@ -3,6 +3,8 @@
 #include <QDebug>
 #include <QInputDialog>
 #include <QtWidgets/QFileDialog>
+#include <QTextStream>
+#include <QtWidgets/QMessageBox>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -52,13 +54,6 @@ void MainWindow::addListToDo()
 
 
 
-void MainWindow::saveListToDo()
-{
-
-
-
-}
-
 
 
 void MainWindow::removeListToDo(ListToDo *listToDo)
@@ -91,4 +86,45 @@ void MainWindow::updateStatus()
             QString("Status: %1 Checklist ")
                     .arg(todoCount)
                     .arg(completedCount));
+}
+
+void MainWindow::on_Save_clicked()
+{
+    QString nomeFile = QFileDialog::getSaveFileName(this,
+                                                    tr("File di Testo (*.txt);;C++ File (*.cpp *.h)"));
+    if (nomeFile != "") {
+        QFile file(nomeFile);
+
+        if (file.open(QIODevice::ReadWrite)) {
+            QTextStream stream(&file);
+                  //  stream << ui->toPlainText();
+            file.flush();
+            file.close();
+        }
+        else {
+            QMessageBox::critical(this, tr("Errore"), tr("Non posso salvare il file"));
+            return;
+        }
+    }
+};
+void MainWindow::on_OpenFile_clicked()
+{
+
+    QString fileName = QFileDialog::getOpenFileName(this,
+                                                    tr("Text Files ('''.txt);;C++ Files ('''.cpp '''.h)"));
+
+    if (fileName != "") {
+        QFile file(fileName);
+        if (!file.open(QIODevice::ReadOnly)) {
+            QMessageBox::critical(this, tr("Error"),
+                                  tr("Could not open file"));
+            return;
+        }
+        QString contents = file.readAll().constData();
+        //textEdit->setPlainText(contents);
+        file.close();
+    }
+
+
+
 }
