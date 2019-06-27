@@ -6,80 +6,67 @@
             <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>562</width>
-                <height>404</height>
+                <width>491</width>
+                <height>382</height>
             </rect>
         </property>
         <property name="windowTitle">
             <string>Task</string>
         </property>
-        <widget class="QWidget" name="layoutWidget">
+        <widget class="QWidget" name="">
             <property name="geometry">
                 <rect>
                     <x>0</x>
-                    <y>10</y>
-                    <width>551</width>
-                    <height>341</height>
+                    <y>1</y>
+                    <width>481</width>
+                    <height>381</height>
                 </rect>
             </property>
-            <layout class="QGridLayout" name="gridLayout">
+            <layout class="QGridLayout" name="TaskLayout_3">
                 <item row="0" column="0">
-                    <layout class="QFormLayout" name="formLayout">
-                        <item row="0" column="0" colspan="2">
-                            <layout class="QHBoxLayout" name="toolbarLayout">
-                                <item>
-                                    <widget class="QLabel" name="statusLabel">
-                                        <property name="text">
-                                            <string>Status: 0 Checklist</string>
-                                        </property>
-                                    </widget>
-                                </item>
-                                <item>
-                                    <spacer name="horizontalSpacer">
-                                        <property name="orientation">
-                                            <enum>Qt::Horizontal</enum>
-                                        </property>
-                                        <property name="sizeHint" stdset="0">
-                                            <size>
-                                                <width>40</width>
-                                                <height>20</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                </item>
-                                <item>
-                                    <widget class="QPushButton" name="addTaskButton">
-                                        <property name="text">
-                                            <string>Add Task</string>
-                                        </property>
-                                    </widget>
-                                </item>
-                            </layout>
-                        </item>
-                        <item row="2" column="1">
-                            <spacer name="verticalSpacer">
-                                <property name="orientation">
-                                    <enum>Qt::Vertical</enum>
+                    <layout class="QHBoxLayout" name="toolbarLayout">
+                        <item>
+                            <widget class="QLabel" name="statusLabel">
+                                <property name="text">
+                                    <string>Status: 0 Checklist</string>
                                 </property>
-                                <property name="sizeType">
-                                    <enum>QSizePolicy::Maximum</enum>
+                            </widget>
+                        </item>
+                        <item>
+                            <spacer name="horizontalSpacer">
+                                <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
                                 </property>
                                 <property name="sizeHint" stdset="0">
                                     <size>
-                                        <width>20</width>
-                                        <height>40</height>
+                                        <width>40</width>
+                                        <height>20</height>
                                     </size>
                                 </property>
                             </spacer>
                         </item>
-                        <item row="1" column="0" colspan="2">
+                        <item>
+                            <widget class="QPushButton" name="addTaskButton">
+                                <property name="text">
+                                    <string>Add Task</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </item>
+                <item row="1" column="0">
+                    <widget class="QToolBox" name="">
+                        <widget class="QWidget" name="Page1_2" native="true">
+                            <attribute name="label">
+                                <string/>
+                            </attribute>
                             <layout class="QVBoxLayout" name="TaskLayout">
                                 <property name="sizeConstraint">
                                     <enum>QLayout::SetMaximumSize</enum>
                                 </property>
                             </layout>
-                        </item>
-                    </layout>
+                        </widget>
+                    </widget>
                 </item>
             </layout>
         </widget>
