@@ -8,6 +8,8 @@
 #include <QtWidgets/QColorDialog>
 #include <QPixmap>
 #include <QFont>
+#include <QMouseEvent>
+
 
 Task::Task(const QString &name, QWidget *parent) :
         QWidget(parent),
@@ -27,6 +29,8 @@ Task::Task(const QString &name, QWidget *parent) :
             });
 
     connect(ui->checkbox, &QCheckBox::toggled, this, &Task::checked);
+
+
 }
 
 Task::~Task()
@@ -83,7 +87,15 @@ void Task::on_Important_clicked()
     palette.setColor(ui->checkbox->foregroundRole(), Qt::red);
     ui->checkbox->setPalette(palette);
 
-
     }
 
+void Task::on_NotImportant_clicked()
+{
 
+    QPixmap pix("");
+    ui->label_pic-> setPixmap(pix.scaled(15,15,Qt::KeepAspectRatio));
+    QPalette palette = ui->checkbox->palette();
+    palette.setColor(ui->checkbox->foregroundRole(), Qt::black);
+    ui->checkbox->setPalette(palette);
+
+}

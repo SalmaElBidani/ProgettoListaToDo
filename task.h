@@ -2,7 +2,12 @@
 #define TASK_H
 
 #include <QWidget>
+#include <QtWidgets/QListView>
+#include <QDebug>
 
+#include <QAbstractItemModel>
+#include <QListView>
+#include <QMouseEvent>
 
 namespace Ui {
     class Task;
@@ -29,6 +34,8 @@ signals:
 private slots:
     void checked(bool checked);
 void on_Important_clicked();
+void on_NotImportant_clicked();
+
 
 
 private:
