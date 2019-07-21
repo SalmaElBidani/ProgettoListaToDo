@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bab47/fast 
+/usr/bin/make -f CMakeFiles/cmTC_bab47.dir/build.make CMakeFiles/cmTC_bab47.dir/build
+make[1]: ingresso nella directory "/home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/CMakeTmp"
+Building C object CMakeFiles/cmTC_bab47.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_bab47.dir/CheckSymbolExists.c.o   -c /home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_bab47
+/snap/clion/73/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bab47.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_bab47.dir/CheckSymbolExists.c.o  -o cmTC_bab47 
+CMakeFiles/cmTC_bab47.dir/CheckSymbolExists.c.o: nella funzione "main":
+CheckSymbolExists.c:(.text+0x1b): riferimento non definito a "pthread_create"
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_bab47.dir/build.make:86: recipe for target 'cmTC_bab47' failed
+make[1]: *** [cmTC_bab47] Error 1
+make[1]: uscita dalla directory "/home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/CMakeTmp"
+Makefile:121: recipe for target 'cmTC_bab47/fast' failed
+make: *** [cmTC_bab47/fast] Error 2
+
+File /home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_768c1/fast 
+/usr/bin/make -f CMakeFiles/cmTC_768c1.dir/build.make CMakeFiles/cmTC_768c1.dir/build
+make[1]: ingresso nella directory "/home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/CMakeTmp"
+Building C object CMakeFiles/cmTC_768c1.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_768c1.dir/CheckFunctionExists.c.o   -c /snap/clion/73/bin/cmake/linux/share/cmake-3.14/Modules/CheckFunctionExists.c
+Linking C executable cmTC_768c1
+/snap/clion/73/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_768c1.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_768c1.dir/CheckFunctionExists.c.o  -o cmTC_768c1 -lpthreads 
+/usr/bin/ld: impossibile trovare -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_768c1.dir/build.make:86: recipe for target 'cmTC_768c1' failed
+make[1]: *** [cmTC_768c1] Error 1
+make[1]: uscita dalla directory "/home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/CMakeTmp"
+Makefile:121: recipe for target 'cmTC_768c1/fast' failed
+make: *** [cmTC_768c1/fast] Error 2
+
+

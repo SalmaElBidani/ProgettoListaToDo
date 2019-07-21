@@ -1,0 +1,4 @@
+/home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/gtest.dir
+/home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/selma/Documenti/googletest/cmake-build-debug/CMakeFiles/gtest_main.dir
