@@ -8,41 +8,61 @@
 
 ListToDo::ListToDo(const QString &name, QWidget *parent) :
         QWidget(parent),
-        ui(new Ui::ListToDo)
+        cui(new Ui::ListToDo)
 {
-    ui->setupUi(this);
+    cui->setupUi(this);
     setName(name);
-    connect(ui->editButton, &QPushButton::clicked,
+    connect(cui->editButton, &QPushButton::clicked,
             this, &ListToDo::rename);
 
 
-    connect(ui->removeButton, &QPushButton::clicked,
+    connect(cui->removeButton, &QPushButton::clicked,
             [this] {
                 emit removed(this);
             });
 
-    connect(ui->checkbox, &QPushButton::toggled, this, &ListToDo::checked);
+    connect(cui->checkbox, &QPushButton::toggled, this, &ListToDo::checked);
+    //  qDebug() << this;
+    //  qDebug() << this->name();
+
+    //  qDebug() << ListToDo::name();
+
+   //connect(Board(mTask), &Board::TaskSaved, this, ListToDo::saveTask(mTask)  ); //////////////////
+
 }
 
 ListToDo::~ListToDo()
 {
-    delete ui;
+    delete cui;
+}
+
+void ListToDo::saveTask(QVector<Task*> lTask) //salva lTask su mtask
+{
+    qDebug() << "Salvataggio task - segnale ricevuto";
+   //
+    mTask=lTask;
+    qDebug() << "nuovo valore mTask" << mTask;
 }
 
 
 void ListToDo::setName(const QString &name)
 {
-    ui->checkbox->setText(name);
+    cui->checkbox->setText(name);
 }
 
 QString ListToDo::name() const
 {
-    return ui->checkbox->text();
+    return cui->checkbox->text();
+}
+
+QVector<Task*> ListToDo::retTask() const
+{
+   return mTask;
 }
 
 bool ListToDo::isCompleted() const
 {
-    return ui->checkbox->isChecked();
+    return cui->checkbox->isChecked();
 }
 
 void ListToDo::rename()
@@ -60,18 +80,24 @@ void ListToDo::rename()
 void ListToDo::checked(bool checked)
 {
 
-    QFont font(ui->checkbox->font());
+    QFont font(cui->checkbox->font());
 
     font.setStrikeOut(checked);
 
-    ui->checkbox->setFont(font);
+    cui->checkbox->setFont(font);
 
     emit statusChanged(this);
 }
 
+
 void ListToDo::on_checkbox_clicked()
 {
- Board Board;
-    Board.setModal(true);
-    Board.exec();
+    Board *board = new Board(mTask);
+    //Board Board(mTask); //mTask
+    board->setModal(true);
+
+   connect(board, &Board::TaskSaved, this, &ListToDo::saveTask  );
+
+
+    board->exec();
 }

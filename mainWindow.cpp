@@ -97,7 +97,41 @@ void MainWindow::on_Save_clicked()
 
         if (file.open(QIODevice::ReadWrite)) {
             QTextStream stream(&file);
-                  //  stream << ui->toPlainText();
+            qDebug() << "save file";
+            qDebug() << mListToDos.size();
+            //qDebug() << mListToDos;
+            // fare cicli per listtodo e sottocicli per task
+            stream << mListToDos.size() <<endl;
+
+            for (auto t : mListToDos)
+            {
+
+                // qDebug()<< t;   //puntatore a ListToDo
+                qDebug() << t->name();  //nome ListToDo
+                stream << t->name() <<endl;
+
+                qDebug()<< t->retTask().size();  // numero di task della lista
+                stream << t->retTask().size() <<endl;
+
+                // qDebug()<< t->retTask(); // Puntatori ai Task
+                for (auto a : t->retTask())
+                {
+                    // qDebug() << a;  // puntatori ai singoli Task
+                    qDebug() << a->name(); // nome task
+                    stream << a->name() <<endl;
+                    qDebug() << a->isCompleted(); // task completato
+                    stream << a->isCompleted() <<endl;
+                    qDebug() << a->isImportant();
+                    stream << a->isImportant() <<endl;
+                }
+
+
+                // qDebug()<< ListToDo::t::name();
+
+              //  qDebug()<< t->listToDosLayout;
+
+            }
+
             file.flush();
             file.close();
         }

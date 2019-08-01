@@ -13,45 +13,46 @@
 
 Task::Task(const QString &name, QWidget *parent) :
         QWidget(parent),
-        ui(new Ui::Task)
+        tui(new Ui::Task)
 {
 
 
-    ui->setupUi(this);
+    tui->setupUi(this);
     setName(name);
-    connect(ui->editButton, &QPushButton::clicked,
+    Important=false;
+    connect(tui->editButton, &QPushButton::clicked,
             this, &Task::rename);
 
 
-    connect(ui->removeButton, &QPushButton::clicked,
+    connect(tui->removeButton, &QPushButton::clicked,
             [this] {
                 emit removed(this);
             });
 
-    connect(ui->checkbox, &QCheckBox::toggled, this, &Task::checked);
+    connect(tui->checkbox, &QCheckBox::toggled, this, &Task::checked);
 
 
 }
 
 Task::~Task()
 {
-    delete ui;
+    delete tui;
 }
 
 
 void Task::setName(const QString &name)
 {
-    ui->checkbox->setText(name);
+    tui->checkbox->setText(name);
 }
 
 QString Task::name() const
 {
-    return ui->checkbox->text();
+    return tui->checkbox->text();
 }
 
 bool Task::isCompleted() const
 {
-    return ui->checkbox->isChecked();
+    return tui->checkbox->isChecked();
 }
 
 void Task::rename()
@@ -68,11 +69,11 @@ void Task::rename()
 
 void Task::checked(bool checked)
 {
-    QFont font(ui->checkbox->font());
+    QFont font(tui->checkbox->font());
 
     font.setStrikeOut(checked);
 
-    ui->checkbox->setFont(font);
+    tui->checkbox->setFont(font);
 
     emit statusChanged(this);
 }
@@ -80,22 +81,30 @@ void Task::checked(bool checked)
 
 void Task::on_Important_clicked()
 {
-    QPixmap pix("/home/valeria/Scrivania/qt5-cpp-todo-master080619/qt5-cpp-todo-master/stella.png");
-    ui->label_pic-> setPixmap(pix.scaled(15,15,Qt::KeepAspectRatio));
+    Task::Important=true;
+    QPixmap pix("/home/valeria/Scrivania/listtodo31.07.19f/stella.png");
+    tui->label_pic-> setPixmap(pix.scaled(15,15,Qt::KeepAspectRatio));
 
-    QPalette palette = ui->checkbox->palette();
-    palette.setColor(ui->checkbox->foregroundRole(), Qt::red);
-    ui->checkbox->setPalette(palette);
+    QPalette palette = tui->checkbox->palette();
+    palette.setColor(tui->checkbox->foregroundRole(), Qt::red);
+    tui->checkbox->setPalette(palette);
 
     }
 
 void Task::on_NotImportant_clicked()
 {
-
+    Task::Important=false;
     QPixmap pix("");
-    ui->label_pic-> setPixmap(pix.scaled(15,15,Qt::KeepAspectRatio));
-    QPalette palette = ui->checkbox->palette();
-    palette.setColor(ui->checkbox->foregroundRole(), Qt::black);
-    ui->checkbox->setPalette(palette);
+    tui->label_pic-> setPixmap(pix.scaled(15,15,Qt::KeepAspectRatio));
+    QPalette palette = tui->checkbox->palette();
+    palette.setColor(tui->checkbox->foregroundRole(), Qt::black);
+    tui->checkbox->setPalette(palette);
 
+}
+
+bool Task::isImportant() const
+{
+
+   return (this->Important);
+    //return tui->checkbox->palette();
 }

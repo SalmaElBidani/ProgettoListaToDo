@@ -2,23 +2,55 @@
 #include "Board.h"
 #include "ui_Board.h"
 #include <mainWindow.h>
+#include <ListToDo.h>
 #include <task.h>
 #include <QDebug>
 #include <QScrollArea>
 
-Board::Board(QWidget *parent) :
+Board::Board(QVector<Task*> pTask, QWidget *parent) :
         QDialog(parent),
-        ui(new Ui::Board),
-    mTask()
-{
-    ui->setupUi(this);
-    updateStatus();
+        bui(new Ui::Board),
+        lTask()
+        {
+    copypTask(pTask);
+   // updateStatus();
+    bui->setupUi(this);
+            for (auto t : lTask)
+            {
+                bui->TaskLayout->addWidget(t);
+
+            }
+     bui->TaskLayout->activate()    ;
+
+            updateStatus();
+
+
+
+
+
+
+    qDebug() << parent;
+    connect(bui->SaveTask, &QPushButton::clicked,
+            [this] {
+                emit TaskSaved(lTask);
+                qDebug() << "emesso segnale" << lTask;
+                qDebug() << this;
+
+            });
+
+
 }
 
 Board::~Board()
 {
-    delete ui;
+    delete bui;
 }
+
+void Board::copypTask(QVector<Task*> pTask)
+{
+   lTask=pTask;
+}
+
 
 void Board::on_Board_accepted()
 {
@@ -41,28 +73,22 @@ void Board::on_addTaskButton_clicked()
         Task *task = new Task(name);
         connect(task, &Task::removed, this, &Board::removeTask);
         connect(task, &Task::statusChanged, this, &Board::taskstatusChanged);
-        mTask.append(task);
+        lTask.append(task);
 
-        ui->TaskLayout->addWidget(task);
+        bui->TaskLayout->addWidget(task);
         updateStatus();
     }
 
 
 }
 
-void Board::saveTask()
-{
-
-
-
-}
 
 
 
 void Board::removeTask(Task*task)
 {
-    mTask.removeOne(task);
-    ui->TaskLayout->removeWidget(task);
+    lTask.removeOne(task);
+    bui->TaskLayout->removeWidget(task);
 
     task->setParent(0);
     delete task;
@@ -81,14 +107,14 @@ void Board::updateStatus()
 {
     int completedCount = 0;
 
-    for (auto t : mTask) {
+    for (auto t : lTask) {
         if (t->isCompleted()) {
             completedCount++;
         }
     }
-    int todoCount = mTask.size() - completedCount;
+    int todoCount = lTask.size() - completedCount;
 
-    ui->statusLabel->setText(
+    bui->statusLabel->setText(
             QString("Status: %1 todo / %2 completed")
                     .arg(todoCount)
                     .arg(completedCount));

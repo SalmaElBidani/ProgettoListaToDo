@@ -2,9 +2,13 @@
 #define ListToDo_H
 
 #include <QWidget>
+#include <Board.h>
+#include <task.h>
 
 namespace Ui {
     class ListToDo;
+    class Board;
+  //  class Task;
 }
 
 class ListToDo : public QWidget
@@ -17,10 +21,15 @@ public:
 
     void setName(const QString &name);
     QString name() const;
+    QVector<Task*> retTask() const;
     bool isCompleted() const;
+    void recmTask(); //copia pTask in mTask
+ //   QVector<Task*> pTask;
+  //  void saveTask(QVector<Task*> lTask); //salva lTask su mTask
 
 public slots:
     void rename();
+    void saveTask(QVector<Task*> lTask); //salva lTask su mTask
 
 signals:
     void removed(ListToDo *listToDo);
@@ -29,7 +38,9 @@ private slots:
     void checked(bool checked);
     void on_checkbox_clicked();
 private:
-    Ui::ListToDo *ui;
+    Ui::ListToDo *cui;
+ //   Ui::Board *bui;
+    QVector<Task*> mTask;
 };
 
 #endif // TASK_H

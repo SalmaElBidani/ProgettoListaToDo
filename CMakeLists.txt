@@ -31,5 +31,3 @@ add_executable(Esame_Programmazione_Lista_ToDo
 target_link_libraries(${PROJECT_NAME} Qt5::Core)
 target_link_libraries(${PROJECT_NAME} Qt5::Gui)
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
-
-add_subdirectory(Tests)

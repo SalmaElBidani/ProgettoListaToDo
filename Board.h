@@ -6,7 +6,9 @@
 #include <task.h>
 
 namespace Ui {
+    class ListToDo;
     class Board;
+    class Task;
 }
 
 class Board : public QDialog
@@ -14,24 +16,27 @@ class Board : public QDialog
 Q_OBJECT
 
 public:
-    explicit Board(QWidget *parent = 0);
+    explicit Board(QVector<Task*> pTask, QWidget *parent = 0);
 
 
     ~Board();
 
+signals:
+    void TaskSaved(QVector<Task*> pTask);
+
 private slots:
     void on_Board_accepted();
-void on_addTaskButton_clicked();
-void updateStatus();
-void saveTask();
-void removeTask(Task*task);
-void taskstatusChanged(Task *task);
+    void on_addTaskButton_clicked();
+    void updateStatus();
+    void removeTask(Task*task);
+    void taskstatusChanged(Task *task);
 
 
 
 private:
-    Ui::Board *ui;
-    QVector<Task*> mTask;
+    void copypTask(QVector<Task*> pTask);  //copia pTask in lTask
+    Ui::Board *bui;
+    QVector<Task*> lTask;
 };
 
 #endif // BOARD_H

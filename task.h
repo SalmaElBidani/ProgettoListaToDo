@@ -10,6 +10,8 @@
 #include <QMouseEvent>
 
 namespace Ui {
+    class ListToDo;
+    class Board;
     class Task;
 }
 
@@ -24,6 +26,7 @@ public:
     void setName(const QString &name);
     QString name() const;
     bool isCompleted() const;
+    bool isImportant() const;
 
 public slots:
     void rename();
@@ -39,7 +42,8 @@ void on_NotImportant_clicked();
 
 
 private:
-    Ui::Task *ui;
+    Ui::Task *tui;
+    bool Important;
 };
 
 #endif // TASK_H
