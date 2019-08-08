@@ -154,7 +154,45 @@ void MainWindow::on_OpenFile_clicked()
                                   tr("Could not open file"));
             return;
         }
-        QString contents = file.readAll().constData();
+        QTextStream stream(&file);
+        int nl= stream.readLine().toInt(); // numero listodo
+        qDebug()<< nl<< endl;
+        for (int n=0; n<nl; n++)
+        {
+            QString name = stream.readLine();
+
+            qDebug()<< name << " nome listtodo";
+
+            ListToDo *listToDo = new ListToDo(name);
+            connect(listToDo, &ListToDo::removed, this, &MainWindow::removeListToDo);
+            connect(listToDo, &ListToDo::statusChanged, this, &MainWindow::listToDoStatusChanged);
+            mListToDos.append(listToDo);
+
+            ui->listToDosLayout->addWidget(listToDo);
+            updateStatus();
+
+
+
+            int nt= stream.readLine().toInt(); // numero task
+            for (int m=0; m<nt; m++)
+            {
+                qDebug()<< stream.readLine()<< " nome task";
+                qDebug()<< stream.readLine()<< " fatto";
+                qDebug()<< stream.readLine()<< " importante";
+            }
+
+
+
+        }
+
+        //while( !stream.atEnd() )
+        //{
+        //    qDebug()<< stream.readLine();
+        //}
+
+        //QString contents = file.readAll().constData();
+        //qDebug() << contents; // scrive tutto il file su debug
+
         //textEdit->setPlainText(contents);
         file.close();
     }

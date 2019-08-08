@@ -82,7 +82,7 @@ void Task::checked(bool checked)
 void Task::on_Important_clicked()
 {
     Task::Important=true;
-    QPixmap pix("/home/valeria/Scrivania/listtodo31.07.19f/stella.png");
+    QPixmap pix("/home/valeria/Scrivania/programma070819/stella.png");
     tui->label_pic-> setPixmap(pix.scaled(15,15,Qt::KeepAspectRatio));
 
     QPalette palette = tui->checkbox->palette();
