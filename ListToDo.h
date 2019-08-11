@@ -26,7 +26,7 @@ public:
     void recmTask(); //copia pTask in mTask
  //   QVector<Task*> pTask;
   //  void saveTask(QVector<Task*> lTask); //salva lTask su mTask
-
+    void addTask(Task *task); // aggiunge un task a mTask
 public slots:
     void rename();
     void saveTask(QVector<Task*> lTask); //salva lTask su mTask

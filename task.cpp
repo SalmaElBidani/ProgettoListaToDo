@@ -78,11 +78,25 @@ void Task::checked(bool checked)
     emit statusChanged(this);
 }
 
+void Task::setCompleted()
+{
+    Task::checked(true);
+    tui->checkbox->setChecked(1);
+    // Board::updateStatus();
+}
+
+
+void Task::setImportant()
+{
+    //Task::Important=true;
+    Task::on_Important_clicked();
+}
+
 
 void Task::on_Important_clicked()
 {
     Task::Important=true;
-    QPixmap pix("/home/valeria/Scrivania/programma070819/stella.png");
+    QPixmap pix("/home/valeria/Scrivania/11.08.19c/stella.png");
     tui->label_pic-> setPixmap(pix.scaled(15,15,Qt::KeepAspectRatio));
 
     QPalette palette = tui->checkbox->palette();

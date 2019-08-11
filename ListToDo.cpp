@@ -101,3 +101,8 @@ void ListToDo::on_checkbox_clicked()
 
     board->exec();
 }
+
+void ListToDo::addTask( Task *task)
+{
+    ListToDo::mTask.append(task);
+}

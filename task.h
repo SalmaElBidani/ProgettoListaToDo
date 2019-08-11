@@ -27,6 +27,8 @@ public:
     QString name() const;
     bool isCompleted() const;
     bool isImportant() const;
+    void setCompleted();
+    void setImportant();
 
 public slots:
     void rename();

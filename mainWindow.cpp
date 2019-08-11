@@ -174,11 +174,36 @@ void MainWindow::on_OpenFile_clicked()
 
 
             int nt= stream.readLine().toInt(); // numero task
-            for (int m=0; m<nt; m++)
+
+
+
+            for (int m=0; m<nt; m++) //inserisce task
             {
-                qDebug()<< stream.readLine()<< " nome task";
-                qDebug()<< stream.readLine()<< " fatto";
-                qDebug()<< stream.readLine()<< " importante";
+                QString nameTask = stream.readLine();
+                qDebug()<< nameTask << " nome task";
+                qDebug() << "Adding new task";
+
+                Task *task = new Task(nameTask);
+                // connect(task, &Task::removed, this, &Board::removeTask);
+                // connect(task, &Task::statusChanged, this, &Board::taskstatusChanged);
+                // listToDo->addTask(task); // da spostare dopo caricati gli attributi
+
+                QString Tfatto = stream.readLine();
+                qDebug()<< Tfatto << " fatto";
+
+                if (Tfatto=="1"){
+                   qDebug() << "XXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+                    task->setCompleted();
+                }
+
+                QString Timp = stream.readLine();
+                qDebug()<< Timp << " importante";
+                if (Timp=="1"){
+                    qDebug() << "IIIIIIIIIIIIIIIIIIIIIIIIII";
+                    task->setImportant();
+                }
+
+                listToDo->addTask(task);
             }
 
 
