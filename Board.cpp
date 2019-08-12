@@ -18,6 +18,8 @@ Board::Board(QVector<Task*> pTask, QWidget *parent) :
             for (auto t : lTask)
             {
                 bui->TaskLayout->addWidget(t);
+                connect(t, &Task::removed, this, &Board::removeTask);
+                connect(t, &Task::statusChanged, this, &Board::taskstatusChanged);
 
             }
      bui->TaskLayout->activate()    ;

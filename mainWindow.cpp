@@ -185,7 +185,9 @@ void MainWindow::on_OpenFile_clicked()
 
                 Task *task = new Task(nameTask);
                 // connect(task, &Task::removed, this, &Board::removeTask);
+                // connect(task, &Task::statusChanged, this, &Board::taskstatusChanged);connect(task, &Task::removed, this, &Board::removeTask);
                 // connect(task, &Task::statusChanged, this, &Board::taskstatusChanged);
+
                 // listToDo->addTask(task); // da spostare dopo caricati gli attributi
 
                 QString Tfatto = stream.readLine();
